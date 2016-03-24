@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/bootstrap.css" />
+
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/tags.css" />
+<!-- <link rel="stylesheet" href="css/templates.css" /> -->
+<link rel="stylesheet" href="css/menus.css" />
+<link rel="stylesheet" href="css/page_content.css" />
+<!-- <link rel="stylesheet" href="css/print.css" /> -->
+
+<link rel="stylesheet" href="css/upload.css" />
+
+<script src="js/jquery-1.12.0.js"></script>
+<script src="js/bootstrap.js"></script>
+
+<script type="text/javascript" src="js/upload.js"></script>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">NHS</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown"><a data-toggle="collapse"
+					href="#downloadCollapse">Downloads <span class="caret"></span>
+				</a></li>
+				<li><a>Upload </a></li>
+			</ul>
+		</div>
+		<div class="collapse container" id="downloadCollapse">
+			<div class="row">
+				<div class="col-sm-4">
+					<h3>Category1</h3>
+					<h5>
+						<a href="Form1.txt" download="Form1">Form 1</a>
+					</h5>
+					<h5>
+						<a href="#">Form 2</a>
+					</h5>
+					<h5>
+						<a href="#">Form 3</a>
+					</h5>
+				</div>
+				<div class="col-sm-4">
+					<h3>Category2</h3>
+					<h5>
+						<a href="#">Form 1</a>
+					</h5>
+					<h5>
+						<a href="#">Form 2</a>
+					</h5>
+					<h5>
+						<a href="#">Form 3</a>
+					</h5>
+				</div>
+				<div class="col-sm-4">
+					<h3>Category3</h3>
+
+					<h5>
+						<a href="#">Form 1</a>
+					</h5>
+					<h5>
+						<a href="#">Form 2</a>
+					</h5>
+					<h5>
+						<a href="#">Form 3</a>
+					</h5>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row pad-top-5">
+			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+				<form class="form-horizontal" METHOD="POST" onsubmit="return checkform(this);">
+					<fieldset>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<legend>Customer Information:</legend>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<label for="txtFname" class="col-sm-4 control-label">First
+										Name:</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="txtFname"
+											placeholder="First Name">
+									</div>
+								</div>
+								<div class ="alert alert-danger fade in" id="missingFnm" style="display:none">
+									<strong>Please enter your first name</strong>
+								</div>
+
+								<div class="form-group">
+									<label for="txtLname" class="col-sm-4 control-label">Last
+										Name: </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="txtLname"
+											placeholder="Last Name">
+									</div>
+								</div>
+								<div class ="alert alert-danger fade in" id="missingLnm" style="display:none">
+									<strong>Please enter your last name</strong>
+								</div>
+								
+								<div class="form-group">
+									<label for="txtAddressLine1" class="col-sm-4 control-label"> Address Line 1: </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="txtAddressLine1"
+											placeholder="Address Line 1">
+									</div>
+								</div>
+								<div class ="alert alert-danger fade in" id="missingAddress" style="display:none">
+									<strong>Please enter a valid address</strong>
+								</div>
+						
+								<div class="form-group">
+									<label for="txtAddressLine2" class="col-sm-4 control-label"> Address Line 2: </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="txtAddressLine2"
+											placeholder="Address Line 2">
+									</div>
+								</div>
+						
+								<div class="form-group">
+									<label for="txtCity" class="col-sm-4 control-label">
+										City: </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="txtCity"
+											placeholder="Address Line 2">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="txtState" class="col-sm-4 control-label"> State: </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="txtState"
+											placeholder="State">
+									</div>
+								</div>
+						
+								<div class="form-group">
+									<label for="txtPostalCode" class="col-sm-4 control-label"> Postal Code: </label>
+									<div class="col-sm-8">
+										<input type="number" class="form-control" id="txtPostalCode"
+											placeholder="Postal Code">
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<legend>Contact Information:</legend>
+							</div>
+							<div class="panel-body">	
+								<div class="form-group">
+									<label for="txtPhone" class="col-sm-4 control-label"> Phone Number: </label>
+									<div class="col-sm-8">
+										<input type="tel" class="form-control" id="txtPhone"
+											placeholder="Phone number">
+									</div>
+								</div>
+								<div class ="alert alert-danger fade in" id="missingContact" style="display:none">
+									<strong>Please enter either a phone number or an email address.</strong>
+								</div>
+						
+								<div class="form-group">
+									<label for="txtEmail" class="col-sm-4 control-label"> Email: </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="txtEmail"
+											placeholder="Email">
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>Document Information</legend>
+
+						<div id="uploadContainer">
+							<div class="extraFile">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<div class=row>
+											<div class="col-sm-11" name="panel-head">File :</div>
+											<div class="col-sm-1">
+												<a href="#" class="remove-file"
+													name="remove-file"> <span
+													class="glyphicon glyphicon-minus"></span>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="panel-body">
+										<div class="form-group">
+											<label for="" class="col-sm-4 control-label"
+												name="lblCategory">Document Category: </label>
+											<div class="col-sm-8">
+												<select class="form-control" name="sCategory">
+													<option>Category 1</option>
+													<option>Category 2</option>
+													<option>Category 3</option>
+													<option>Category 4</option>
+													<option>Category 5</option>
+													<option>Category 6</option>
+													<option>Other</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label" name="lblFileName">
+												File Name:</label>
+											<div class="col-sm-8">
+												<input type="text" name="txtFileName" class="form-control" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-4 control-label" name="lblFile">Select
+												File</label>
+											<div class="col-sm-8">
+												<input type="file" class="file" name="file" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-8">
+							<a href="#" id="add-file"> <span
+								class="glyphicon glyphicon-plus"></span> Add more files
+							</a>
+						</div>
+					</div>
+						
+					<div class ="alert alert-danger fade in" id="emptyCode" style="display:none">
+						<strong>Please enter the verification code.</strong>
+					</div>
+					
+					<div class ="alert alert-danger fade in" id="wrongCode" style="display:none">
+						<strong>The verification code you entered was incorrect.</strong>
+					</div>
+						
+					<div class="form-group">
+						<div class="col-sm-offset-3 col-sm-8">
+							Enter Code<span id="txtCaptchaDiv" style="background-color:#A51D22;color:#FFF;padding:5px"></span>
+							<input type="hidden" id="txtCaptcha"/>
+							<input type="text" name="txtInput" id="txtInput" size="15"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-8">
+							<button type="submit" class="btn btn-default" id="btnUpload">Upload</button>
+						</div>
+					</div>
+				</form>
+				
+				<script type="text/javascript">
+				function checkform(theform){
+				var valid=0;
+				if(document.getElementById("txtFname").value=="")
+				{
+					document.getElementById("missingFnm").style.display="block";
+					valid=1;
+				}
+				else{
+					document.getElementById("missingFnm").style.display="none";
+				}
+				if(document.getElementById("txtLname").value=="")
+				{
+					document.getElementById("missingLnm").style.display="block";
+					valid=1;
+				}
+				else{
+					document.getElementById("missingLnm").style.display="none";
+				}
+				if(document.getElementById("txtAddressLine1").value==""||document.getElementById("txtState").value==""||document.getElementById("txtPostalCode").value=="")
+				{
+					document.getElementById("missingAddress").style.display="block";
+					valid=1;
+				}
+				else{
+					document.getElementById("missingAddress").style.display="none";
+				}
+				if(document.getElementById("txtPhone").value!=""||document.getElementById("txtEmail").value!="")
+				{
+					document.getElementById("missingContact").style.display="none";
+				}
+				else{
+					document.getElementById("missingContact").style.display="block";
+					valid=1;
+				}
+				
+				if(valid==0)
+				{
+					var why=0;
+					if(theform.txtInput.value==""){
+						why=1;
+					}
+					if(theform.txtInput.value!=""){
+						if(ValidCaptcha(theform.txtInput.value)==false){
+							why=2;
+						}
+					}
+					if(why!=0)
+					{
+						if(why==1&&valid==0)
+						{
+							document.getElementById("emptyCode").style.display="block";
+							document.getElementById("wrongCode").style.display="none";
+						}
+						if(why==2&&valid==0)
+						{
+							document.getElementById("emptyCode").style.display="none";
+							document.getElementById("wrongCode").style.display="block";
+						}
+						return false;
+					}
+					else{
+						document.getElementById("emptyCode").style.display="none";
+						document.getElementById("wrongCode").style.display="none";
+					}
+				}
+				else{
+					return false;
+				}
+				}
+				
+				var a=Math.ceil(Math.random()*9)+'';
+				var b=Math.ceil(Math.random()*9)+'';
+				var c=Math.ceil(Math.random()*9)+'';
+				var d=Math.ceil(Math.random()*9)+'';
+				var e=Math.ceil(Math.random()*9)+'';
+				
+				var code=a+b+c+d+e;
+				document.getElementById("txtCaptcha").value=code;
+				document.getElementById("txtCaptchaDiv").innerHTML=code;
+				
+				function ValidCaptcha(){
+				var str1=removeSpaces(document.getElementById('txtCaptcha').value);
+				var str2=removeSpaces(document.getElementById('txtInput').value);
+				if(str1==str2){
+				return true;
+				}else{
+				return false;
+				}
+				}
+				
+				function removeSpaces(string){
+				return string.split(' ').join('');
+				}
+				</script>
+				
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
